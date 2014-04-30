@@ -38,10 +38,6 @@ module.exports = (grunt) ->
         files: ["<%= config.app %>/**/*.{scss,sass}"]
         tasks: ["sass:server"]
 
-      styles:
-        files: ["<%= config.app %>/styles/{,*/}*.css"]
-        tasks: ["newer:copy:styles"]
-
       livereload:
         options:
           livereload: "<%= connect.options.livereload %>"
@@ -168,6 +164,7 @@ module.exports = (grunt) ->
           cwd: "<%= config.app %>"
           dest: "<%= config.dist %>"
           src: [
+            "bower_components/**/*.css",
             "styles/fonts/{,*/}*.*"
           ]
         ]
