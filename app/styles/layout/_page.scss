@@ -43,24 +43,41 @@ html,body {
         background: rgba(0,0,0,.5);
       }
     }
-  }
+  }//end shortcuts-list
 
   .menu-open & {
     -webkit-transform: translate3d(300px, 0, 0);
+  }
+
+  .side-view-open & {
+    -webkit-transform: translate3d(880px, 0, 0);
   }
 }//end shortcuts
 
 .menu {
   @include absolute(top 0 left 0 right 0 bottom 0);
-  -webkit-transform: translate3d(-280px, -0, 0);
   @include transition(transform .35s cubic-bezier(0.7,0,0.175,1));
-  width: 280px;
-  height: 100%;
-  background: #333;
+  background: #0D1214;
   box-shadow: 2px 0 2px rgba(0,0,0,.15);
-  z-index: 1;
+  -webkit-transform: translate3d(-280px, -0, 0);
+  width: 280px;
+  z-index: 2;
 
   .menu-open & {
     -webkit-transform: translate3d(0, 0, 0);
   }
 }
+
+.side-view {
+  @include absolute(top 0 left 0 right 0 bottom 0);
+  @include transition(transform .35s cubic-bezier(0.7,0,0.175,1));
+  background: red;
+  width: 600px;
+  z-index: 1;
+  -webkit-transform: translate3d(-600px, -0, 0);
+
+  .side-view-open & {
+    -webkit-transform: translate3d(280px, 0, 0);
+  }
+}
+

@@ -5,5 +5,11 @@
   @extend %reset;
   color: #fff;
   padding-top: 20px;
-  background: red;
-}
+
+  .nav-item {
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}//end nav
