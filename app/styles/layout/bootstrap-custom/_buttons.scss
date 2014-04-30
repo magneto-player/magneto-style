@@ -3,6 +3,56 @@
 // --------------------------------------------------
 
 
+
+// Mixins
+// --------------------------------------------------
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 10%);
+        border-color: darken($border, 12%);
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
+
+
 // Base styles
 // --------------------------------------------------
 
@@ -14,7 +64,7 @@
   vertical-align: middle;
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 2px solid;
+  border: 2px solid transparent;
   white-space: nowrap;
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
   @include user-select(none);
@@ -30,6 +80,7 @@
   &:hover,
   &:focus {
     color: $btn-default-color;
+    border-color: $btn-default-color;
     text-decoration: none;
     // background: ;
   }
@@ -175,16 +226,9 @@ input[type="button"] {
 //
 // CUSTOM Buttons
 // --------------------------------------------------
-@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  line-height: $line-height;
-  border-radius: $border-radius;
-}
-
 .btn {
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, 0);
-  background: none;
+  background: transparent;
   color: #aaa;
   -webkit-transition: background .1s linear;
   text-transform: uppercase;
@@ -192,7 +236,6 @@ input[type="button"] {
   &:hover,
   &:focus {
     background: #fff;
-    border: 2px solid #fff;
     color: #aaa;
   }
 
