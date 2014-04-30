@@ -1,0 +1,306 @@
+// ==========================================================================
+// Mixins library by Gauthier Eloy (last update: 04-09-2014)
+// ==========================================================================
+
+
+// A cross browser clearfix (LT IE8 support)
+%clearfix-cb {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+%clearfix:after {
+  content: '';
+  display:table;
+  clear: both;
+}// New
+
+
+%inline-block {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+} // support LT IE8
+
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Alias for square
+@mixin square($size) {
+  @include size($size);
+}
+
+
+%text-replacement {
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+
+%center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+%reset {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+// Using before/after LT IE8 polifyll : pseudo.js
+// http://jquery.lukelutman.com/plugins/pseudo/
+@mixin before($before-content:'') {
+  &:before {
+    before: $before-content;
+    content: $before-content;
+  }
+
+  &:before, > .before {
+    @content;
+  }
+}
+
+@mixin after($after-content:'') {
+  &:after {
+    after: $after-content;
+    content: $after-content;
+  }
+
+  &:after, > .after {
+    @content;
+  }
+}// LT IE8 (pseudo.js)
+
+
+@mixin opacity-cb($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+@mixin triangle($triangle-type, $triangle-direction, $triangle-color, $triangle-width, $triangle-height:"") {
+  border-style: solid;
+  height: 0px;
+  width: 0px;
+
+  @if $triangle-height == "" {
+   $triangle-height: $triangle-width;
+  }
+
+  @if $triangle-type == eq {
+    @if $triangle-direction == 'bottom' {
+      border-width: (sqrt(3) / 2 * ($triangle-width)) ($triangle-width / 2) 0 ($triangle-width / 2);
+      border-color: $triangle-color transparent transparent transparent;
+    }@else if $triangle-direction == 'top' {
+      border-width: 0 ($triangle-width / 2) (sqrt(3) / 2 * ($triangle-width)) ($triangle-width / 2);
+      border-color: transparent transparent $triangle-color transparent;
+    }@else if $triangle-direction == 'right' {
+      border-width: ($triangle-height / 2) 0 ($triangle-height / 2) (sqrt(3) / 2 * ($triangle-height));
+      border-color: transparent transparent transparent $triangle-color;
+    }@else if $triangle-direction == 'left' {
+      border-width: ($triangle-height / 2)  (sqrt(3) / 2 * ($triangle-height)) ($triangle-height / 2) 0;
+      border-color: transparent $triangle-color transparent transparent;
+    }
+  }//end equilateral
+
+  @if $triangle-type == iso {
+    @if $triangle-direction == 'bottom' {
+      border-color: $triangle-color transparent transparent transparent;
+      border-width: $triangle-height ($triangle-width / 2) 0 ($triangle-width / 2);
+    }@else if $triangle-direction == 'top' {
+      border-color: transparent transparent $triangle-color transparent;
+      border-width: 0 ($triangle-width / 2) $triangle-height  ($triangle-width / 2);
+    }@else if $triangle-direction == 'right' {
+      border-color: transparent transparent transparent $triangle-color;
+      border-width: ($triangle-height / 2) 0 ($triangle-height / 2)  $triangle-width;
+    }@else if $triangle-direction == 'left' {
+      border-color: transparent $triangle-color transparent transparent;
+      border-width: ($triangle-height / 2) $triangle-width ($triangle-height / 2) 0;
+    }
+  }//end isocele
+}//end mixin triangle
+
+
+@mixin transform-origin-cb($val) {
+  -webkit-transform-origin: $val;
+  -moz-transform-origin: $val;
+  -ms-transform-origin: $val;
+  transform-origin: $val;
+}
+
+
+@mixin transform-cb($val) {
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  transform: $val;
+}
+
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+  -moz-animation:    $animations;
+  -o-animation:      $animations;
+  animation:         $animations;
+}
+
+
+@mixin position($position, $args) {
+  $pos: top right bottom left;
+  position: $position;
+
+  @each $o in $pos {
+    $i: index($args, $o);
+
+    @if $i
+    and $i + 1 <= length($args)
+    and type-of( nth($args, $i + 1) ) == number {
+        #{$o}: nth($args, $i + 1);
+    }
+  }
+}
+
+@mixin absolute($args) {
+  @include position(absolute, $args);
+}
+
+@mixin relative($args) {
+  @include position(relative, $args);
+}
+
+@mixin fixed($args) {
+  @include position(fixed, $args);
+}
+
+
+@mixin abs-pos-center($width, $height) {
+  position: absolute;
+  left: 50%;
+  margin-left: $width / 2 * -1;
+  top: 50%;
+  margin-top: $height / 2 * -1;
+}
+
+
+@mixin abs-pos-img($image, $top: null, $right: null, $bottom: null, $left:null) {
+  background: image-url($image);
+  height: image-height($image);
+  width: image-width($image);
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  // add background-repeat in argument ?
+}
+
+
+@mixin abs-pos-center-img($image) {
+  background: image-url($image);
+  height: image-height($image);
+  width: image-width($image);
+  position: absolute;
+  left: 50%;
+  margin-left: image-width($image) / 2 * -1;
+  top: 50%;
+  margin-top: image-height($image) / 2 * -1;
+}
+
+
+@function calculate-rem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}//défault size 16
+
+
+@mixin font-size($size: 16px) {
+  font-size: $size;
+  font-size: calculate-rem($size);
+}
+
+
+@mixin placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+
+@mixin appearance($appearance) {
+  -webkit-appearance: $appearance;
+  -moz-appearance:    $appearance;
+  appearance:         $appearance;
+}
+
+%reset-appearance {
+  @include appearance(none);
+}
+
+
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+  ::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $primary;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $secondary;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $primary;
+    scrollbar-track-color: $secondary;
+  }
+}
