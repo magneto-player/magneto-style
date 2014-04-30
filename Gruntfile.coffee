@@ -176,6 +176,10 @@ module.exports = (grunt) ->
       test: [""]
       dist: ["sass"]
 
+    release:
+      options:
+        npm: false
+
   grunt.registerTask "serve", (target) ->
     if target is "dist"
       return grunt.task.run([
