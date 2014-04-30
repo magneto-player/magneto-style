@@ -1,0 +1,6 @@
+/.tmp
+/app
+/test
+.bowerrc
+bower.json
+Gruntfile.coffee
