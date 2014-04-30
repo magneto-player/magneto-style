@@ -36,11 +36,11 @@ module.exports = (grunt) ->
 
       sass:
         files: ["<%= config.app %>/**/*.{scss,sass}"]
-        tasks: ["sass:server"] #, 'autoprefixer'
+        tasks: ["sass:server"]
 
       styles:
         files: ["<%= config.app %>/styles/{,*/}*.css"]
-        tasks: ["newer:copy:styles"] #, 'autoprefixer'
+        tasks: ["newer:copy:styles"]
 
       livereload:
         options:
@@ -83,11 +83,6 @@ module.exports = (grunt) ->
               connect().use("/bower_components", connect.static("./bower_components"))
               connect.static(config.app)
             ]
-
-      dist:
-        options:
-          base: "<%= config.dist %>"
-          livereload: false
 
 
     # Empties folders to start fresh
@@ -151,24 +146,9 @@ module.exports = (grunt) ->
           expand: true
           cwd: "<%= config.app %>/styles"
           src: ["*.scss"]
-          dest: ".tmp/styles"
+          dest: "<%= config.dist %>/styles"
           ext: ".css"
         ]
-
-
-    # Add vendor prefixed styles
-    autoprefixer:
-      options:
-        browsers: ["last 1 version"]
-
-      dist:
-        files: [
-          expand: true
-          cwd: ".tmp/styles/"
-          src: "{,*/}*.css"
-          dest: ".tmp/styles/"
-        ]
-
 
     # Automatically inject Bower components into the HTML file
     bowerInstall:
@@ -179,107 +159,6 @@ module.exports = (grunt) ->
       sass:
         src: ["<%= config.app %>/styles/{,*/}*.{scss,sass}"]
 
-
-    # Renames files for browser caching purposes
-    rev:
-      dist:
-        files:
-          src: [
-            "<%= config.dist %>/scripts/{,*/}*.js"
-            "<%= config.dist %>/styles/{,*/}*.css"
-            "<%= config.dist %>/images/{,*/}*.*"
-            "<%= config.dist %>/styles/fonts/{,*/}*.*"
-            "<%= config.dist %>/*.{ico,png}"
-          ]
-
-
-    # Reads HTML for usemin blocks to enable smart builds that automatically
-    # concat, minify and revision files. Creates configurations in memory so
-    # additional tasks can operate on them
-    useminPrepare:
-      options:
-        dest: "<%= config.dist %>"
-
-      html: "<%= config.app %>/index.html"
-
-
-    # Performs rewrites based on rev and the useminPrepare configuration
-    usemin:
-      options:
-        assetsDirs: [
-          "<%= config.dist %>"
-          "<%= config.dist %>/images"
-        ]
-
-      html: ["<%= config.dist %>/{,*/}*.html"]
-      css: ["<%= config.dist %>/styles/{,*/}*.css"]
-
-
-    # The following *-min tasks produce minified files in the dist folder
-    imagemin:
-      dist:
-        files: [
-          expand: true
-          cwd: "<%= config.app %>/images"
-          src: "{,*/}*.{gif,jpeg,jpg,png}"
-          dest: "<%= config.dist %>/images"
-        ]
-
-    svgmin:
-      dist:
-        files: [
-          expand: true
-          cwd: "<%= config.app %>/images"
-          src: "{,*/}*.svg"
-          dest: "<%= config.dist %>/images"
-        ]
-
-    htmlmin:
-      dist:
-        options:
-          collapseBooleanAttributes: true
-          collapseWhitespace: true
-          removeAttributeQuotes: true
-          removeCommentsFromCDATA: true
-          removeEmptyAttributes: true
-          removeOptionalTags: true
-          removeRedundantAttributes: true
-          useShortDoctype: true
-
-        files: [
-          expand: true
-          cwd: "<%= config.dist %>"
-          src: "{,*/}*.html"
-          dest: "<%= config.dist %>"
-        ]
-
-
-    # By default, your `index.html`'s <!-- Usemin block --> will take care of
-    # minification. These next options are pre-configured if you do not wish
-    # to use the Usemin blocks.
-    # cssmin: {
-    #     dist: {
-    #         files: {
-    #             '<%= config.dist %>/styles/main.css': [
-    #                 '.tmp/styles/{,*/}*.css',
-    #                 '<%= config.app %>/styles/{,*/}*.css'
-    #             ]
-    #         }
-    #     }
-    # },
-    # uglify: {
-    #     dist: {
-    #         files: {
-    #             '<%= config.dist %>/scripts/scripts.js': [
-    #                 '<%= config.dist %>/scripts/scripts.js'
-    #             ]
-    #         }
-    #     }
-    # },
-    # concat: {
-    #     dist: {}
-    # },
-
     # Copies remaining files to places other tasks can use
     copy:
       dist:
@@ -289,35 +168,16 @@ module.exports = (grunt) ->
           cwd: "<%= config.app %>"
           dest: "<%= config.dist %>"
           src: [
-            "*.{ico,png,txt}"
-            ".htaccess"
-            "images/{,*/}*.webp"
-            "{,*/}*.html"
             "styles/fonts/{,*/}*.*"
           ]
         ]
 
-      styles:
-        expand: true
-        dot: true
-        cwd: "<%= config.app %>/styles"
-        dest: ".tmp/styles/"
-        src: "{,*/}*.css"
-
 
     # Run some tasks in parallel to speed up build process
     concurrent:
-      server: [
-        "sass:server"
-        "copy:styles"
-      ]
-      test: ["copy:styles"]
-      dist: [
-        "sass"
-        "copy:styles"
-        "imagemin"
-        "svgmin"
-      ]
+      server: ["sass:server"]
+      test: [""]
+      dist: ["sass"]
 
   grunt.registerTask "serve", (target) ->
     if target is "dist"
@@ -329,16 +189,12 @@ module.exports = (grunt) ->
       "clean:server"
       "concurrent:server"
 
-      #'autoprefixer',
       "connect:livereload"
       "watch"
     ]
     return
 
-  grunt.registerTask "server", (target) ->
-    grunt.log.warn "The `server` task has been deprecated. Use `grunt serve` to start a server."
-    grunt.task.run [(if target then ("serve:" + target) else "serve")]
-    return
+  grunt.registerTask "server", "serve"
 
   grunt.registerTask "test", (target) ->
     if target isnt "watch"
@@ -347,7 +203,6 @@ module.exports = (grunt) ->
         "concurrent:test"
       ]
 
-    #'autoprefixer'
     grunt.task.run [
       "connect:test"
       "mocha"
@@ -356,16 +211,8 @@ module.exports = (grunt) ->
 
   grunt.registerTask "build", [
     "clean:dist"
-    "useminPrepare"
     "concurrent:dist"
-    "autoprefixer"
-    "concat"
-    "cssmin"
-    "uglify"
     "copy:dist"
-    "rev"
-    "usemin"
-    "htmlmin"
   ]
   grunt.registerTask "default", [
     "newer:jshint"
