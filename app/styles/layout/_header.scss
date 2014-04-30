@@ -2,10 +2,49 @@
 // Header
 // ==========================================================================
 
-.header {
+.status-bar {
   @include background(linear-gradient(#282828, #1E1E1E));
   border-bottom: 1px solid #000;
   height: 43px;
   @include absolute(top 0 right 0 bottom 0 left 0 );
   z-index: 3;
+}
+
+.os-nav {
+  @extend %reset;
+  float: left;
+  line-height: 44px;
+  list-style-type: none;
+  padding-left: 12px;
+
+  .os-nav-item {
+    display: inline-block;
+
+    &.os-nav-item-close a:hover { background: #F35D53; }
+
+    &.os-nav-item-min a:hover {  background: #FFD14C; }
+
+    &.os-nav-item-max a:hover { background: #94CC77; }
+
+    a {
+      @include square(12px);
+      @include transition (background .1s ease-in-out);
+      background: #000000;
+      border-radius: 999px;
+      box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.05);
+      color: #fff;
+      display: inline-block;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+  }//end os-nav-item
+}//os nav
+
+.title-file {
+  @extend %font-regular;
+  color: #000000;
+  font-size: 15px;
+  line-height: 44px;
+  text-align: center;
+  text-shadow: 0px 1px 0px rgba(255,255,255,0.10);
 }

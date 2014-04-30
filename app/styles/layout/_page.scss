@@ -8,18 +8,59 @@ html,body {
 }
 
 .workspace {
-  @include absolute(top 43px right 0 bottom 0 left 0);
+  @include fixed(top 44px right 0 bottom 0 left 0);
+  height: 100%;
+  background: image-url('video.png');
 }
 
-.btn-menu {
+.shortcuts {
   @include absolute(top 20px left 20px);
-  background: rgba(0,0,0,.3);
-  border-radius: 3px;
-  border: 1px solid rgba(255,255,255,.2);
-  color: rgba(255,255,255,.8);
-  font-size: 14px;
-  padding: 8px 15px;
-  text-decoration: none;
-  text-transform: uppercase;
-  z-index: 2;
+  @include transition(transform .35s ease);
+
+  .shortcuts-list {
+    list-style-type: none;
+    @extend %reset;
+
+    li:first-child .btn-shortcut { margin-top: 0; text-transform: uppercase; }
+
+    .btn-shortcut {
+      @include transition(background .2s);
+      background: rgba(0,0,0,.3);
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.8);
+      display: inline-block;
+      font-size: 14px;
+      margin: 10px 0;
+      min-width: 42px;
+      padding: 8px 15px;
+      text-decoration: none;
+      text-align: center;
+      text-transform: capitalize;
+      z-index: 2;
+
+      &:hover {
+        background: rgba(0,0,0,.5);
+      }
+    }
+  }
+
+  .menu-open & {
+    -webkit-transform: translate3d(300px, 0, 0);
+  }
+}//end shortcuts
+
+.menu {
+  @include absolute(top 0 left 0 right 0 bottom 0);
+  -webkit-transform: translate3d(-280px, -0, 0);
+  @include transition(transform .35s cubic-bezier(0.7,0,0.175,1));
+  width: 280px;
+  height: 100%;
+  background: #333;
+  box-shadow: 2px 0 2px rgba(0,0,0,.15);
+  z-index: 1;
+
+  .menu-open & {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
 }
