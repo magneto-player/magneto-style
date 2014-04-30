@@ -129,7 +129,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: "<%= config.app %>/styles"
           src: ["*.scss"]
-          dest: ".tmp/styles"
+          dest: "<%= config.dist %>/styles"
           ext: ".css"
         ]
 
@@ -142,7 +142,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: "<%= config.app %>/styles"
           src: ["*.scss"]
-          dest: "<%= config.dist %>/styles"
+          dest: ".tmp/styles"
           ext: ".css"
         ]
 
