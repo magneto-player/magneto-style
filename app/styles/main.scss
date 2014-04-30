@@ -7,31 +7,17 @@
    ========================================================================== */
 @import "lib/_vars";
 
-
-/* Imports
-  ========================================================================== */
-
-/* Reset */
+/* Reset
+   ========================================================================== */
 @import "../bower_components/normalize.css/normalize.css";
 
-/* Libraries*/
+/* Libraries
+   ========================================================================== */
 @import
-  "lib/_mixins";
-
-/* Layout */
-@import "_base";
+  "lib/_mixins",
+  "lib/_text";
 
 
-
-header {
-  height: 43px;
-  background-image: -o-linear-gradient(-89deg, #282828 0%, #1E1E1E 100%);
-  background-image: -moz-linear-gradient(-89deg, #282828 0%, #1E1E1E 100%);
-  background-image: -ms-linear-gradient(-89deg, #282828 0%, #1E1E1E 100%);
-  background-image: linear-gradient(-179deg, #282828 0%, #1E1E1E 100%);
-  border-bottom: 1px solid #000;
-}
-
-.video {
-  background: image-url('video.png');
-}
+/* Layout
+   ========================================================================== */
+@import "layout";

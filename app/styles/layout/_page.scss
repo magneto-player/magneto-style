@@ -1,0 +1,25 @@
+// ==========================================================================
+// Page
+// ==========================================================================
+html,body {
+  height: 100%;
+  @extend %font-regular;
+  -webkit-font-smoothing: antialiased;
+}
+
+.workspace {
+  @include absolute(top 43px right 0 bottom 0 left 0);
+}
+
+.btn-menu {
+  @include absolute(top 20px left 20px);
+  background: rgba(0,0,0,.3);
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.8);
+  font-size: 14px;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  z-index: 2;
+}

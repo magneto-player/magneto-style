@@ -1,0 +1,11 @@
+// ==========================================================================
+// Header
+// ==========================================================================
+
+.header {
+  @include background(linear-gradient(#282828, #1E1E1E));
+  border-bottom: 1px solid #000;
+  height: 43px;
+  @include absolute(top 0 right 0 bottom 0 left 0 );
+  z-index: 3;
+}
