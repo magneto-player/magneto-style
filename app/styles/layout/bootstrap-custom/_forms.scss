@@ -1,0 +1,37 @@
+.checkbox,
+.radio {
+  label {
+    input {
+      -webkit-appearance: none;
+      height: 15px;
+      width: 15px;
+      margin: 2px 0 0;
+      background: #fff;
+
+      &:active {
+        opacity: .8;
+      }
+
+      &:checked {
+        background: red;
+      }
+    }
+  }
+}
+
+.radio {
+  input {
+    border-radius: 15px;
+  }
+}
+
+body {
+  background: #ccc;
+  margin: 20px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+}
+
