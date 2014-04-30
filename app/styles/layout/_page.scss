@@ -1,16 +1,16 @@
 // ==========================================================================
 // Page
 // ==========================================================================
-html,body {
+html, body {
   height: 100%;
+  margin: 0;
   @extend %font-regular;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
 .workspace {
-  @include fixed(top 43px right 0 bottom 0 left 0);
-  height: 100%;
-  background: image-url('video.png');
+  @include absolute(top 43px right 0 bottom 0 left 0);
 }
 
 .shortcuts {

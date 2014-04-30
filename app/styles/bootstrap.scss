@@ -1,13 +1,13 @@
 // default variables
 
-@import "./bootstrap-custom/_variables.scss";
+@import "./bootstrap/_variables.scss";
 
 /* Bootstrap
    ========================================================================== */
-@import "../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/bootstrap.scss";
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/bootstrap.scss";
 
 /* Bootstrap Custom
    ========================================================================== */
 @import 
-  "./bootstrap-custom/_buttons.scss",
-  "./bootstrap-custom/_forms.scss";
+  "./bootstrap/_buttons.scss",
+  "./bootstrap/_forms.scss";

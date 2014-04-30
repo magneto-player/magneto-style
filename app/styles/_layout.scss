@@ -7,15 +7,11 @@
    ========================================================================== */
 @import
   "layout/_page",
-  "layout/_header",
-  "layout/_interface";
+  "layout/_header";
 
 
 /* Specific
    ========================================================================== */
 @import
-  "layout/specific/_nav";
-
-body {
-  margin: 0;
-}
+  "layout/specific/_nav",
+  "layout/specific/_player";
