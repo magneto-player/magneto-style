@@ -12,4 +12,13 @@ $(document).ready(function() {
     $('.workspace').toggleClass('side-view-open');
   });
 
+  videojs($('video').get(0))
+
+  $('.fullscreen').click(function (e) {
+    e.preventDefault();
+    if (screenfull.enabled) {
+      screenfull.request();
+    }
+  })
+
 });

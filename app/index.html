@@ -15,6 +15,10 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
+
+  <link rel="stylesheet" href="bower_components/video.js/video-js.dev.css">
+  <script type="text/javascript" src="bower_components/video.js/video.js"></script>
+  <script type="text/javascript" src="bower_components/screenfull/dist/screenfull.js"></script>
 </head>
 <body>
   <header class="status-bar">
@@ -31,8 +35,16 @@
 
   <main class="workspace">
     <div class="player">
-      <video poster="images/video.png"></video>
+      <video
+        height="100%"
+        width="100%"
+        poster="images/video.png"
+        src="http://vjs.zencdn.net/v/oceans.mp4"
+        preload="auto"
+        controls
+        class="video-js vjs-default-skin"></video>
     </div>
+
     <div class="shortcuts">
       <ul class="shortcuts-list">
         <li><a class="btn-shortcut btn-shortcut-menu" href="#">Menu</a></li>

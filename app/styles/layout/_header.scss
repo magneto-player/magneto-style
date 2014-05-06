@@ -4,18 +4,24 @@
 
 .status-bar {
   @include background(linear-gradient(#282828, #1E1E1E));
+  @include absolute(top 0 right 0 bottom 0 left 0 );
   border-bottom: 1px solid #000;
   height: 43px;
-  @include absolute(top 0 right 0 bottom 0 left 0 );
-  z-index: 3;
+
+  // Enable window dragging
+  -webkit-app-region: drag;
+
+  :-webkit-full-screen &, .full-screen & {
+    display: none;
+  }
 }
 
 .os-nav {
   @extend %reset;
   float: left;
-  line-height: 44px;
   list-style-type: none;
   padding-left: 12px;
+  padding-top: 15px;
 
   .os-nav-item {
     display: inline-block;
