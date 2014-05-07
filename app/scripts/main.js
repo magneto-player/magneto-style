@@ -12,6 +12,11 @@ $(document).ready(function() {
     $('.workspace').toggleClass('side-view-open');
   });
 
+  $('.side-view-option-icon').click(function(e) {
+    e.preventDefault();
+    $('.side-view-option').toggleClass('side-view-option-open');
+  });
+
   videojs($('video').get(0))
 
   $('.fullscreen').click(function (e) {

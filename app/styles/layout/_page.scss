@@ -82,18 +82,3 @@ html, body {
   }
 }
 
-.side-view {
-  @include absolute(top 0 left 0 right 0 bottom 0);
-  @include transition(transform .35s cubic-bezier(0.7,0,0.175,1), opacity .5s);
-  -webkit-transform: translate3d(-600px, -0, 0);
-  background: #eeeded;
-  opacity: 0;
-  width: 600px;
-  z-index: 1;
-
-  .side-view-open & {
-    -webkit-transform: translate3d(280px, 0, 0);
-    opacity: .7;
-  }
-}
-
