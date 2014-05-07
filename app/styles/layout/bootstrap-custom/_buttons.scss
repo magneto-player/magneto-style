@@ -1,5 +1,5 @@
 //
-// BOOTSTRAP BASE Buttons
+// Custom Buttons
 // --------------------------------------------------
 
 
@@ -9,7 +9,7 @@
 @mixin button-variant($color, $background, $border) {
   color: $color;
   background-color: $background;
-  border-color: $border;
+  border-color: $background;
 
   &:hover,
   &:focus,
@@ -17,14 +17,16 @@
   &.active,
   .open > &.dropdown-toggle {
     color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
+    background-color: $background;
+        border-color: $border;
   }
+
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     background-image: none;
   }
+
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
@@ -53,6 +55,8 @@
 }
 
 
+
+
 // Base styles
 // --------------------------------------------------
 
@@ -66,6 +70,8 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 2px solid transparent;
   white-space: nowrap;
+  transition: background .1s linear, border .1s linear;
+  text-transform: uppercase;
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
   @include user-select(none);
 
@@ -82,14 +88,21 @@
     color: $btn-default-color;
     border-color: $btn-default-color;
     text-decoration: none;
-    // background: ;
+    @include opacity(1);
+    @include box-shadow(none);
   }
 
   &:active,
   &.active {
-    outline: 0;
-    background-image: none;
-    @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    color: $btn-default-color;
+    border-color: $btn-default-color;
+    text-decoration: none;
+    @include opacity(0.9);
+    @include box-shadow(none);
+  }
+
+  &.active:hover {
+    @include opacity(1);
   }
 
   &.disabled,
@@ -97,7 +110,7 @@
   fieldset[disabled] & {
     cursor: not-allowed;
     pointer-events: none; // Future-proof disabling of clicks
-    @include opacity(.65);
+    @include opacity(0.33);
     @include box-shadow(none);
   }
 }
@@ -175,14 +188,14 @@
 
 .btn-lg {
   // line-height: ensure even-numbered height of button next to large input
-  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-base);
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input
-  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-base);
 }
 .btn-xs {
-  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-base);
 }
 
 
@@ -214,34 +227,9 @@ input[type="button"] {
 
 
 
-
-
-
-
-
-
-
-
-
 //
 // CUSTOM Buttons
 // --------------------------------------------------
 .btn {
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, 0);
   background: transparent;
-  color: #aaa;
-  -webkit-transition: background .1s linear;
-  text-transform: uppercase;
-
-  &:hover,
-  &:focus {
-    background: #fff;
-    color: #aaa;
-  }
-
-  &:active,
-  &.active {
-    opacity: .8;
-    box-shadow: none;
-  }
 }
