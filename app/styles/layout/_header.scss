@@ -1,7 +1,6 @@
 // ==========================================================================
 // Header
 // ==========================================================================
-
 .status-bar {
   @include background(linear-gradient(#282828, #1E1E1E));
   @include absolute(top 0 right 0 bottom 0 left 0 );
@@ -48,16 +47,24 @@
 
 .title-file {
   @extend %font-regular;
-  color: #000000;
+  color: #626262;
   font-size: 15px;
   line-height: 44px;
+  overflow: hidden;
   text-align: center;
-  text-shadow: 0px 1px 0px rgba(255,255,255,0.10);
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 0 #000;
+  white-space: nowrap;
 }
 
 .fullscreen {
-  position: absolute;
-  top: 12px;
-  right: 21px;
-  color: #fff;
+  @include absolute(top 12px right 21px);
+
+  .icon {
+    transition: color .2s;
+    color: #626262;
+    text-shadow: 0 1px 0 #000;
+
+    &:hover { color: #fff; }
+  }
 }

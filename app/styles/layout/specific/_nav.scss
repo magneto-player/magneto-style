@@ -9,7 +9,7 @@
   text-transform: uppercase;
 }
 
-.nav {
+.navigation {
   @extend %reset;
   background: #191E23;
   color: #fff;
@@ -18,11 +18,11 @@
   padding-left: 40px;
   text-transform: uppercase;
 
-  &.sub-nav {
+  &.sub-navigation {
     background: none;
   }
 
-  .nav-item {
+  .navigation-item {
     &:first-child a { border-top: none; }
     a {
       transition: color .2s;
@@ -41,9 +41,9 @@
       font-size: 17px;
       margin-right: 18px;
     }
-  }//end nav-item
-}//end nav
+  }//end navigation-item
+}//end navigation
 
-.sub-nav {
+.sub-navigation {
   @extend %reset;
 }

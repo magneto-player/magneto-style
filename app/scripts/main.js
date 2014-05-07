@@ -7,7 +7,7 @@ $(document).ready(function() {
     }
   });
 
-  $('.nav-item a').click(function(e) {
+  $('.navigation-item a').click(function(e) {
     e.preventDefault();
     $('.workspace').toggleClass('side-view-open');
   });
@@ -20,5 +20,4 @@ $(document).ready(function() {
       screenfull.request();
     }
   })
-
 });
