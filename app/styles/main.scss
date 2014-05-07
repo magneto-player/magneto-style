@@ -7,10 +7,14 @@
    ========================================================================== */
 @import "lib/_vars";
 
-/* Reset
+
+/* Deps
    ========================================================================== */
-@import "../bower_components/normalize.css/normalize.css";
-@import "../bower_components/bourbon/dist/_bourbon";
+@import "../bower_components/normalize.css/normalize.css",
+        "../bower_components/bourbon/dist/_bourbon",
+        "bootstrap.css",
+        "videojs.css";
+
 
 /* Libraries
    ========================================================================== */

@@ -15,6 +15,9 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
+
+  <script type="text/javascript" src="bower_components/video.js/video.js"></script>
+  <script type="text/javascript" src="bower_components/screenfull/dist/screenfull.js"></script>
 </head>
 <body>
   <header class="status-bar">
@@ -26,10 +29,25 @@
     <div class="title-file">
       Game.of.Thrones.S04.FASTSUB.VOSTFR.720p.HDTV.x264-ADDiCTiON
     </div>
-    <a class="fullscreen" href="#">fullscreen</a>
+    <a href="#" class="fullscreen"><i class="icon icon-fullscreen"></i></a>
   </header>
 
   <main class="workspace">
+    <div class="player">
+      <video
+        height="100%"
+        width="100%"
+        poster="images/video.png"
+        src="http://vjs.zencdn.net/v/oceans.webm"
+        preload="auto"
+        controls
+        class="video-js vjs-niceplay-skin"></video>
+    </div>
+
+    <div>
+
+    </div>
+
     <div class="shortcuts">
       <ul class="shortcuts-list">
         <li><a class="btn-shortcut btn-shortcut-menu" href="#">Menu</a></li>
@@ -43,10 +61,18 @@
     </div>
 
     <div class="menu">
-      <ul class="nav">
-        <li class="nav-item"><a href="#">link</a></li>
-        <li class="nav-item"><a href="#">link</a></li>
-        <li class="nav-item"><a href="#">link</a></li>
+      <div class="identity">Nice player</div>
+      <ul class="navigation">
+        <li class="navigation-item"><a href="#"><i class="icon icon-gear"></i> Settings</a></li>
+        <li class="navigation-item"><a href="#"><i class="icon icon-theme"></i> Themes</a></li>
+        <li class="navigation-item">
+          <a href="#"><i class="icon icon-plugin"></i> Plugins</a>
+        </li>
+      </ul>
+      <ul class="navigation sub-navigation">
+        <li class="navigation-item"><a href="#"><i class="icon icon-plugin-origin">Su</i> Subtitles</a></li>
+        <li class="navigation-item"><a href="#"><i class="icon icon-plugin-origin">Li</i> Library</a></li>
+        <li class="navigation-item"><a href="#"><i class="icon icon-plugin-origin">Im</i> Imdb</a></li>
       </ul>
     </div>
 

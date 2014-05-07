@@ -122,7 +122,6 @@ module.exports = (grunt) ->
     sass:
       options:
         includePaths: ["bower_components"]
-        imagePath: "/truc"
 
       dist:
         files: [
