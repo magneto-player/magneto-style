@@ -1,0 +1,32 @@
+// ==========================================================================
+// Open app screen
+
+.welcome {
+  @include absolute(top 0 right 0 bottom 0 left 0);
+  background-image: -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 90%);
+  z-index: 1;
+
+  .welcome-container {
+    color: #fff;
+    margin-top: 340px;
+    text-align: center;
+    text-shadow: 0 1px 0 #172a72;
+
+    h1 {
+      @extend %font-black;
+      font-size: 50px;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    .btn-open {
+      border: 1px solid #fff;
+      border-radius: 3px;
+      display: inline-block;
+      margin: 50px 0 5px 0;
+      padding: 5px 10px;
+
+      &:hover { text-decoration: none; }
+    }
+  }//end welcome-container
+}//end welcome

@@ -271,7 +271,7 @@ $share-icon: "\e00e";
   position: absolute;
   /* Needed for IE6 *///
   left: 0;
-  top: 0;
+  top: 0px;
 }
 
 .vjs-niceplay-skin .vjs-slider-handle:before {
@@ -281,6 +281,23 @@ $share-icon: "\e00e";
   line-height: 1;
   text-align: center;
   text-shadow: 0em 0em 1em #fff;
+
+  border-radius: 2px;
+  /* Rectangle 6: */
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+  background-image: -o-linear-gradient(-44deg, #FFFFFF 0%, #AEAEAE 100%);
+  background-image: -moz-linear-gradient(-44deg, #FFFFFF 0%, #AEAEAE 100%);
+  background-image: -ms-linear-gradient(-44deg, #FFFFFF 0%, #AEAEAE 100%);
+  background-image: linear-gradient(-134deg, #FFFFFF 0%, #AEAEAE 100%);
+  border: 1px solid #272B36;
+  -moz-box-shadow:    0px 0px 5px 0px rgba(0,0,0,0.50);
+  box-shadow:         0px 0px 5px 0px rgba(0,0,0,0.50);
 
   position: absolute;
   top: 0;
@@ -307,7 +324,11 @@ The default control bar that is a container for most of the controls.
   /* Height includes any margin you want above or below control items *///
   height: 3.0em;
 
-  @include background-color-with-alpha($control-bg-color, $control-bg-alpha);
+  border-top: 1px solid #000;
+  background-image: -o-linear-gradient(-89deg, #282828 0%, #1E1E1E 100%);
+  background-image: -moz-linear-gradient(-89deg, #282828 0%, #1E1E1E 100%);
+  background-image: -ms-linear-gradient(-89deg, #282828 0%, #1E1E1E 100%);
+  background-image: linear-gradient(-179deg, #282828 0%, #1E1E1E 100%);
 }
 
 /* Show the control bar only once the video has started playing */
@@ -450,9 +471,10 @@ $ie8screen: "\0screen";
   left: 0;
   height: 0.5em;
 
-  background: $slider-bar-color
-    url($slider-bar-pattern)
-    -50% 0 repeat;
+  background-image: -o-linear-gradient(-89deg, #5AB2E8 0%, #0285DF 100%);
+  background-image: -moz-linear-gradient(-89deg, #5AB2E8 0%, #0285DF 100%);
+  background-image: -ms-linear-gradient(-89deg, #5AB2E8 0%, #0285DF 100%);
+  background-image: linear-gradient(-179deg, #5AB2E8 0%, #0285DF 100%);
 }
 .vjs-niceplay-skin .vjs-volume-bar .vjs-volume-handle {
   width: 0.5em;
@@ -528,9 +550,11 @@ $ie8screen: "\0screen";
     Also using a paralax effect to make the lines move backwards.
       The -50% left position makes that happen.
   */
-  background: $slider-bar-color
-    url($slider-bar-pattern)
-    -50% 0 repeat;
+
+  background-image: -o-linear-gradient(-89deg, #5AB2E8 0%, #0285DF 100%);
+  background-image: -moz-linear-gradient(-89deg, #5AB2E8 0%, #0285DF 100%);
+  background-image: -ms-linear-gradient(-89deg, #5AB2E8 0%, #0285DF 100%);
+  background-image: linear-gradient(-179deg, #5AB2E8 0%, #0285DF 100%);
 }
 .vjs-niceplay-skin .vjs-load-progress {
   background: rgb(100, 100, 100) /* IE8- Fallback */;
