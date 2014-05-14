@@ -165,7 +165,8 @@ module.exports = (grunt) ->
           src: [
             "bower_components/**/*.css",
             "bower_components/video.js/font/*",
-            "styles/fonts/{,*/}*.*"
+            "styles/fonts/{,*/}*.*",
+            "images/*"
           ]
         ]
 
