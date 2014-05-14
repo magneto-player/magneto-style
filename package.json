@@ -1,6 +1,9 @@
 {
   "name": "niceplay-style",
   "version": "0.0.3",
+  "scripts": {
+    "prepublish": "grunt build"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
