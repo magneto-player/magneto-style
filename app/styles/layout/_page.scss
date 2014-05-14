@@ -2,9 +2,9 @@
 // Page
 // ==========================================================================
 html, body {
+  @extend %font-regular;
   height: 100%;
   margin: 0;
-  @extend %font-regular;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 
@@ -47,14 +47,14 @@ html, body {
       z-index: 2;
 
       &.btn-shortcut-menu {
-        -webkit-transition: padding .2s;
+        transition: padding .2s;
 
         .icon-burger {
           @include absolute(left -20px);
           display: none;
-          -webkit-transition: opacity .2s, left .2s, top .2s;
-          opacity: 1;
           margin-right: 5px;
+          opacity: 1;
+          transition: opacity .2s, left .2s, top .2s;
         }
 
         &:hover {
@@ -66,29 +66,23 @@ html, body {
             opacity: 1;
           }
         }
-      }
+      }//end btn-shortcut-menu
 
-      &:hover {
-        background: rgba(0,0,0,.6);
-      }
-    }
+      &:hover { background: rgba(0,0,0,.6); }
+    }//end btn-shortcut
   }//end shortcuts-list
 
-  .menu-open & {
-    -webkit-transform: translate3d(300px, 0, 0);
-  }
+  .menu-open & { -webkit-transform: translate3d(300px, 0, 0); }
 
-  .side-view-open & {
-    -webkit-transform: translate3d(880px, 0, 0);
-  }
+  .side-view-open & { -webkit-transform: translate3d(880px, 0, 0); }
 }//end shortcuts
 
 .menu {
   @include absolute(top 0 left 0 right 0 bottom 0);
-  @include transition(transform .35s cubic-bezier(0.7,0,0.175,1));
   -webkit-transform: translate3d(-280px, -0, 0);
   box-shadow: 2px 0 2px rgba(0,0,0,.15);
   overflow: hidden;
+  transition: transform .35s cubic-bezier(0.7,0,0.175,1);
   width: 280px;
   z-index: 2;
 
@@ -99,18 +93,16 @@ html, body {
     z-index: -1;
   }
 
-  .menu-open & {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
+  .menu-open & { -webkit-transform: translate3d(0, 0, 0); }
 }
 
 .error-msg-container {
   @include absolute(top 140px left 50%);
   box-shadow: 0 0 25px 0px rgba(0,0,0,.8);
   color: #fff;
-  z-index: 99;
-  width: 592px;
   margin-left: 592px / 2 * -1;
+  width: 592px;
+  z-index: 99;
 
   header {
     background: #D25255 url('../images/warning.png') top right no-repeat;
@@ -125,11 +117,11 @@ html, body {
     text-align: left;
 
     &:after {
+      border-bottom: 1px solid #FC6368;
       content: '';
       @include absolute(left -21px right -21px bottom 0);
       background: #BE484C;
       height: 2px;
-      border-bottom: 1px solid #FC6368;
     }
   }//end h1
 
@@ -147,6 +139,6 @@ html, body {
       color: #d5403d;
       &:hover { color: #fff; }
     }
-  }
-}
+  }//end footer
+}//end error-msg-container
 

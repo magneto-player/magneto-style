@@ -15,14 +15,12 @@ $left-offset: 40px;
   @extend %reset;
   background: #191E23;
   color: #fff;
-  list-style-type: none;
   font-size: 15px;
+  list-style-type: none;
   padding-left: $left-offset;
   text-transform: uppercase;
 
-  &.sub-navigation {
-    background: none;
-  }
+  &.sub-navigation { background: none; }
 
   .navigation-item {
     &:first-child a { border-top: none; }
@@ -32,16 +30,14 @@ $left-offset: 40px;
     }
 
     a {
-      transition: color .2s;
       border-top: 1px solid #090A0D;
       color: #6F7D8D;
       display: block;
-      text-decoration: none;
       padding: 17px 0;
+      text-decoration: none;
+      transition: color .2s;
 
-      &:hover {
-        color: #fff;
-      }
+      &:hover { color: #fff; }
     }//end a
 
     .icon {
@@ -57,6 +53,7 @@ $left-offset: 40px;
 
 .btn-feedback {
   @include absolute(bottom 10px);
+  color: #6F7D8D;
   font-size: 12px;
   padding-left: $left-offset;
 
