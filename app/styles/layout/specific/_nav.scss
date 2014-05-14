@@ -1,6 +1,8 @@
 // ==========================================================================
 // Left menu
 // ==========================================================================
+$left-offset: 40px;
+
 .identity {
   background: #0D1214;
   color: #fff;
@@ -15,7 +17,7 @@
   color: #fff;
   list-style-type: none;
   font-size: 15px;
-  padding-left: 40px;
+  padding-left: $left-offset;
   text-transform: uppercase;
 
   &.sub-navigation {
@@ -51,4 +53,17 @@
 
 .sub-navigation {
   @extend %reset;
+}
+
+.btn-feedback {
+  @include absolute(bottom 10px);
+  font-size: 12px;
+  padding-left: $left-offset;
+
+  > span {
+    display: inline-block;
+    font-size: 8px;
+    margin-right: 3px;
+    vertical-align: middle;
+  }
 }

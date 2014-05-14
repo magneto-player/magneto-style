@@ -1,3 +1,6 @@
+// ==========================================================================
+// Left Panels
+// ==========================================================================
 .side-view {
   @include absolute(top 0 left 0 right 0 bottom 0);
   @include transition(transform .35s cubic-bezier(0.7,0,0.175,1), opacity .5s);
@@ -64,7 +67,72 @@
 .side-view-content {
   padding: 30px;
 
+  h3:first-child { margin-top: 0; }
+}
 
+
+// ==========================================================================
+// Specific
+// ==========================================================================
+.side-view-content-plugins {
+
+  .input-search {
+    min-width: 300px;
+  }
+
+  .plugin-item-container {
+    @extend %clearfix;
+    margin: 40px 0px;
+
+    .plugin-version {
+      @extend %font-black;
+      background: #3188f9;
+      border-radius: 2px;
+      color: #fff;
+      display: inline-block;
+      font-size: 10px;
+      padding: 3px 5px;
+      margin: 0px 0 0 10px;
+      position: relative;
+      top: -1px;
+    }
+
+    .plugin-installed {
+      @include size(15px);
+      background: #63b63d;
+      border-radius: 99px;
+      display: inline-block;
+      margin-left: 30px;
+      position: relative;
+      text-align: center;
+
+      &:after {
+        content:'\2714';
+        color: #fff;
+        font-size: 11px;
+        vertical-align: 2px;
+      }
+    }
+
+    .plugin-thumb {
+      display: block;
+      border: 1px solid #999;
+      border-radius: 2px;
+      box-shadow:  0px 1px 4px 0px rgba(0,0,0,.1);
+      float: left;
+      margin-right: 10px;
+    }
+
+    .plugin-desc { font-size: 13px;}
+    .plugin-options {
+      padding-left: 81px;
+
+      a {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
 }
 
 

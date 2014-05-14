@@ -42,13 +42,13 @@
       </div>
     </div>
 
-    <div class="error-msg-container">
+    <div class="error-msg-container" style="display: none;">
       <header>
         <h1>An error occured</h1>
         <div class="error-msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, nobis, sed, reiciendis, illo quod explicabo reprehenderit fugit animi excepturi mollitia magni voluptatibus libero perspiciatis fugiat soluta similique adipisci necessitatibus eveniet!</div>
       </header>
       <footer>
-        <a href="#" class="btn btn-danger">Ok no problems</a>
+        <a href="#" class="btn btn-danger">Ok no problem</a>
       </footer>
     </div>
 
@@ -76,63 +76,60 @@
         <table>
           <th>
             <td>
-            <i class="icon icon-plugin-origin">St</i>
-            <span>Subtitles</span>
+            <i class="icon icon-plugin"></i>
+            <span>Plugins</span>
             </td>
             <td>
               <a class="side-view-option-icon" href="#"><i class="icon icon-tool"></i></a>
-              <a href="#"><i class="icon icon-trash"></i></a>
             </td>
           </th>
         </table>
       </header>
-      <div class="side-view-option">Configure this & that
-      </div>
-      <div class="side-view-content">
-        Un super nom pour Niceplay ce serait :
-        <form action="">
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-              Magneto
-            </label>
+      <div class="side-view-option">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail2">Registry url</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter registry url">
           </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-              Wid
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-              Jujubox
-            </label>
-          </div>
-          <div class="checkbox checkbox-inline ">
-            <label class="label56">
-              <input type="checkbox" value="">
-              Option 1
-            </label>
-          </div>
-          <div class="checkbox checkbox-inline ">
-            <label class="label56">
-              <input type="checkbox" value="">
-              Option 2
-            </label>
-          </div>
-          <div class="checkbox checkbox-inline ">
-            <label class="label56">
-              <input type="checkbox" value="">
-              Option 3
-            </label>
-          </div>
-          <input class="form-control" type="textarea" placeholder="Un commentaire ?">
-          <button type="button" class="btn btn-default btn-block">Je vote</button>
-          <button type="button" class="btn btn-primary btn-block">Je ne vote pas parce que je n'aime pas les pingouins</button>
+          <button type="submit" class="btn btn-default">Add</button>
         </form>
       </div>
-    </div>
+      <div class="side-view-content side-view-content-plugins">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <input type="text" class="input-search" class="form-control" id="exampleInputEmail2" placeholder="Search installed or new package">
+          </div>
+        </form>
+        <div class="plugin-item-container">
+          <img class="plugin-thumb plugin-thumb-installed" src="images/imdb.png" alt="imdb" width="70" height="70" />
+          <h5><i class="icon icon-plugin-origin">
+            Im</i> IMDb <span class="plugin-version">0.0.1b</span> <span class="plugin-installed"></span>
+          </h5>
+          <p class="plugin-desc">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, libero soluta obcaecati ipsa tenetur dolorum placeat corporis asperiores modi ullam.
+          </p>
+          <div class="plugin-options">
+            <a href="#" class="btn btn-info">Settings</a>
+            <a href="#" class="btn btn-primary">disable</a>
+            <a href="#" class="btn btn-danger">Uninstall</a>
+          </div>
+        </div><!-- plugin-item-container -->
+        <div class="plugin-item-container">
+          <img class="plugin-thumb plugin-thumb-installed" src="images/imdb.png" alt="imdb" width="70" height="70" />
+          <h5><i class="icon icon-plugin-origin">
+            Im</i> IMDb <span class="plugin-version">0.0.1b</span> <span class="plugin-installed"></span>
+          </h5>
+          <p class="plugin-desc">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, libero soluta obcaecati ipsa tenetur dolorum placeat corporis asperiores modi ullam.
+          </p>
+          <div class="plugin-options">
+            <a href="#" class="btn btn-info">Settings</a>
+            <a href="#" class="btn btn-primary">disable</a>
+            <a href="#" class="btn btn-danger">Uninstall</a>
+          </div>
+        </div><!-- plugin-item-container -->
+      </div><!-- side-view-content-plugins -->
+    </div><!-- end side-view -->
 
     <div class="menu">
       <div class="identity">Nice player</div>
@@ -148,6 +145,7 @@
         <li class="navigation-item"><a href="#"><i class="icon icon-plugin-origin">Li</i> Library</a></li>
         <li class="navigation-item"><a href="#"><i class="icon icon-plugin-origin">Im</i> Imdb</a></li>
       </ul>
+      <a href="#" class="btn-feedback"><span>&#9654;</span>Send feedback</a>
     </div>
 
   </main>

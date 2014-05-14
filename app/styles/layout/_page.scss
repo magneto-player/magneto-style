@@ -50,15 +50,21 @@ html, body {
         -webkit-transition: padding .2s;
 
         .icon-burger {
-          -webkit-transition: opacity .2s;
-          opacity: 0;
+          @include absolute(left -20px);
+          display: none;
+          -webkit-transition: opacity .2s, left .2s, top .2s;
+          opacity: 1;
           margin-right: 5px;
         }
 
         &:hover {
           padding-left: 35px;
 
-          .icon-burger { opacity: 1; }
+          .icon-burger {
+            @include absolute(left 13px top 10px);
+            display: block;
+            opacity: 1;
+          }
         }
       }
 
