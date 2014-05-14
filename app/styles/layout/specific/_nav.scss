@@ -24,6 +24,11 @@
 
   .navigation-item {
     &:first-child a { border-top: none; }
+
+    &.navigation-item-active {
+      a { color: #fff; }
+    }
+
     a {
       transition: color .2s;
       border-top: 1px solid #090A0D;
