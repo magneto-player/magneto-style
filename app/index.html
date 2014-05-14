@@ -33,13 +33,23 @@
   </header>
 
   <main class="workspace">
-    <div class="welcome">
+    <div class="welcome" style="display: none;">
       <div class="welcome-container">
         <h1>MAGNETO</h1>
         <small>a movie player you won't forget</small>
         <div><a class="btn-open" href="#">OPEN FILE</a></div>
-        <div><small>or drag & drop in the window</small></div>
+        <div><small>or drag &amp; drop in the window</small></div>
       </div>
+    </div>
+
+    <div class="error-msg-container">
+      <header>
+        <h1>An error occured</h1>
+        <div class="error-msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, nobis, sed, reiciendis, illo quod explicabo reprehenderit fugit animi excepturi mollitia magni voluptatibus libero perspiciatis fugiat soluta similique adipisci necessitatibus eveniet!</div>
+      </header>
+      <footer>
+        <a href="#" class="btn btn-danger">Ok no problems</a>
+      </footer>
     </div>
 
     <div class="player">
@@ -55,7 +65,7 @@
 
     <div class="shortcuts">
       <ul class="shortcuts-list">
-        <li><a class="btn-shortcut btn-shortcut-menu" href="#">Menu</a></li>
+        <li><a class="btn-shortcut btn-shortcut-menu" href="#"><i class="icon icon-burger"></i> Menu</a></li>
         <li><a class="btn-shortcut" href="#">Sb</a></li>
         <li><a class="btn-shortcut" href="#">Im</a></li>
       </ul>

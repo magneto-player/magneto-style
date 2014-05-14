@@ -3,6 +3,7 @@
   @include transition(transform .35s cubic-bezier(0.7,0,0.175,1), opacity .5s);
   background: rgba(229, 228, 227, 0.9);
   opacity: 0;
+  overflow: auto;
   width: 600px;
   z-index: 1;
   -webkit-transform: translate3d(-600px, -0, 0);
@@ -63,7 +64,7 @@
 .side-view-content {
   padding: 30px;
 
-  
+
 }
 
 

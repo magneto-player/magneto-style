@@ -46,6 +46,22 @@ html, body {
       text-transform: capitalize;
       z-index: 2;
 
+      &.btn-shortcut-menu {
+        -webkit-transition: padding .2s;
+
+        .icon-burger {
+          -webkit-transition: opacity .2s;
+          opacity: 0;
+          margin-right: 5px;
+        }
+
+        &:hover {
+          padding-left: 35px;
+
+          .icon-burger { opacity: 1; }
+        }
+      }
+
       &:hover {
         background: rgba(0,0,0,.6);
       }
@@ -79,6 +95,52 @@ html, body {
 
   .menu-open & {
     -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+.error-msg-container {
+  @include absolute(top 140px left 50%);
+  box-shadow: 0 0 25px 0px rgba(0,0,0,.8);
+  color: #fff;
+  z-index: 99;
+  width: 592px;
+  margin-left: 592px / 2 * -1;
+
+  header {
+    background: #D25255 url('../images/warning.png') top right no-repeat;
+    padding: 16px 21px;
+  }
+
+  h1 {
+    @extend %reset;
+    font-size: 26px;
+    padding-bottom: 21px;
+    position: relative;
+    text-align: left;
+
+    &:after {
+      content: '';
+      @include absolute(left -21px right -21px bottom 0);
+      background: #BE484C;
+      height: 2px;
+      border-bottom: 1px solid #FC6368;
+    }
+  }//end h1
+
+  .error-msg {
+    font-size: 14px;
+    margin: 21px 0 5px 0;
+  }
+
+  footer {
+    background: #fff;
+    padding: 21px;
+    text-align: right;
+
+    .btn {
+      color: #d5403d;
+      &:hover { color: #fff; }
+    }
   }
 }
 
