@@ -206,11 +206,11 @@ $big-play-border-color: #3b4249;
 /* SKIN
 ================================================================================
 The main class name for all skin-specific styles. To make your own skin,
-replace all occurances of 'vjs-niceplay-skin' with a new name. Then add your new
+replace all occurances of 'vjs-magneto-skin' with a new name. Then add your new
 skin name to your video tag instead of the default skin.
 e.g. <video class="video-js my-skin-name">
 */
-.vjs-niceplay-skin {
+.vjs-magneto-skin {
   color: $main-font-color;
 }
 
@@ -253,7 +253,7 @@ $share-icon: "\e00e";
 */
 
 /* Slider - used for Volume bar and Seek bar */
-.vjs-niceplay-skin .vjs-slider {
+.vjs-magneto-skin .vjs-slider {
   /* Replace browser focus hightlight with handle highlight *///
   outline: 0;
   position: relative;
@@ -263,18 +263,18 @@ $share-icon: "\e00e";
   @include background-color-with-alpha($slider-background-color, $slider-background-alpha);
 }
 
-.vjs-niceplay-skin .vjs-slider:focus {
+.vjs-magneto-skin .vjs-slider:focus {
   @include box-shadow(0 0 2em #fff);
 }
 
-.vjs-niceplay-skin .vjs-slider-handle {
+.vjs-magneto-skin .vjs-slider-handle {
   position: absolute;
   /* Needed for IE6 *///
   left: 0;
   top: 0px;
 }
 
-.vjs-niceplay-skin .vjs-slider-handle:before {
+.vjs-magneto-skin .vjs-slider-handle:before {
   content: $square-icon;
   font-family: VideoJS;
   font-size: 1em;
@@ -311,7 +311,7 @@ $share-icon: "\e00e";
 --------------------------------------------------------------------------------
 The default control bar that is a container for most of the controls.
 */
-.vjs-niceplay-skin .vjs-control-bar {
+.vjs-magneto-skin .vjs-control-bar {
   /* Start hidden *///
   display: none;
   position: absolute;
@@ -332,7 +332,7 @@ The default control bar that is a container for most of the controls.
 }
 
 /* Show the control bar only once the video has started playing */
-.vjs-niceplay-skin.vjs-has-started .vjs-control-bar {
+.vjs-magneto-skin.vjs-has-started .vjs-control-bar {
   display: block;
   /* Visibility needed to make sure things hide in older browsers too. */
   visibility: visible;
@@ -343,7 +343,7 @@ The default control bar that is a container for most of the controls.
 }
 
 /* Hide the control bar when the video is playing and the user is inactive  */
-.vjs-niceplay-skin.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+.vjs-magneto-skin.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
   display: block;
   visibility: hidden;
   opacity: 0;
@@ -352,11 +352,11 @@ The default control bar that is a container for most of the controls.
   @include transition($trans);
 }
 
-.vjs-niceplay-skin.vjs-controls-disabled .vjs-control-bar {
+.vjs-magneto-skin.vjs-controls-disabled .vjs-control-bar {
   display: none;
 }
 
-.vjs-niceplay-skin.vjs-using-native-controls .vjs-control-bar {
+.vjs-magneto-skin.vjs-using-native-controls .vjs-control-bar {
   display: none;
 }
 
@@ -366,12 +366,12 @@ fonts to show/hide properly.
   - Found in XP IE8 from http://modern.ie. Does not show up in "IE8 mode" in IE9
 */
 $ie8screen: "\0screen";
-.vjs-niceplay-skin.vjs-user-inactive.vjs-playing .vjs-control-bar :before {
+.vjs-magneto-skin.vjs-user-inactive.vjs-playing .vjs-control-bar :before {
   @media #{$ie8screen} { content: ""; }
 }
 
 /* General styles for individual controls. */
-.vjs-niceplay-skin .vjs-control {
+.vjs-magneto-skin .vjs-control {
   outline: none;
   position: relative;
   float: left;
@@ -383,7 +383,7 @@ $ie8screen: "\0screen";
 }
 
 /* FontAwsome button icons */
-.vjs-niceplay-skin .vjs-control:before {
+.vjs-magneto-skin .vjs-control:before {
   font-family: VideoJS;
   font-size: 1.5em;
   line-height: 2;
@@ -397,75 +397,75 @@ $ie8screen: "\0screen";
 }
 
 /* Replacement for focus outline */
-.vjs-niceplay-skin .vjs-control:focus:before,
-.vjs-niceplay-skin .vjs-control:hover:before {
+.vjs-magneto-skin .vjs-control:focus:before,
+.vjs-magneto-skin .vjs-control:hover:before {
   text-shadow: 0em 0em 1em rgba(255, 255, 255, 1);
 }
 
-.vjs-niceplay-skin .vjs-control:focus {
+.vjs-magneto-skin .vjs-control:focus {
   /*  outline: 0; *///
   /* keyboard-only users cannot see the focus on several of the UI elements when
   this is set to 0 */
 }
 
 /* Hide control text visually, but have it available for screenreaders */
-.vjs-niceplay-skin .vjs-control-text {
+.vjs-magneto-skin .vjs-control-text {
   @include hide-visually;
 }
 
 /* Play/Pause
 --------------------------------------------------------------------------------
 */
-.vjs-niceplay-skin .vjs-play-control {
+.vjs-magneto-skin .vjs-play-control {
   width: 5em;
   cursor: pointer;
 }
-.vjs-niceplay-skin .vjs-play-control:before {
+.vjs-magneto-skin .vjs-play-control:before {
   content: $play-icon;
 }
-.vjs-niceplay-skin.vjs-playing .vjs-play-control:before {
+.vjs-magneto-skin.vjs-playing .vjs-play-control:before {
   content: $pause-icon;
 }
 
 /* Volume/Mute
 -------------------------------------------------------------------------------- */
-.vjs-niceplay-skin .vjs-mute-control,
-.vjs-niceplay-skin .vjs-volume-menu-button {
+.vjs-magneto-skin .vjs-mute-control,
+.vjs-magneto-skin .vjs-volume-menu-button {
   cursor: pointer;
   float: right;
 }
-.vjs-niceplay-skin .vjs-mute-control:before,
-.vjs-niceplay-skin .vjs-volume-menu-button:before {
+.vjs-magneto-skin .vjs-mute-control:before,
+.vjs-magneto-skin .vjs-volume-menu-button:before {
   content: $volume-high-icon;
 }
-.vjs-niceplay-skin .vjs-mute-control.vjs-vol-0:before,
-.vjs-niceplay-skin .vjs-volume-menu-button.vjs-vol-0:before {
+.vjs-magneto-skin .vjs-mute-control.vjs-vol-0:before,
+.vjs-magneto-skin .vjs-volume-menu-button.vjs-vol-0:before {
   content: $volume-muted-icon;
 }
-.vjs-niceplay-skin .vjs-mute-control.vjs-vol-1:before,
-.vjs-niceplay-skin .vjs-volume-menu-button.vjs-vol-1:before {
+.vjs-magneto-skin .vjs-mute-control.vjs-vol-1:before,
+.vjs-magneto-skin .vjs-volume-menu-button.vjs-vol-1:before {
   content: $volume-low-icon;
 }
-.vjs-niceplay-skin .vjs-mute-control.vjs-vol-2:before,
-.vjs-niceplay-skin .vjs-volume-menu-button.vjs-vol-2:before {
+.vjs-magneto-skin .vjs-mute-control.vjs-vol-2:before,
+.vjs-magneto-skin .vjs-volume-menu-button.vjs-vol-2:before {
   content: $volume-mid-icon;
 }
 
-.vjs-niceplay-skin .vjs-volume-control {
+.vjs-magneto-skin .vjs-volume-control {
   width: 5em;
   float: right;
 }
-.vjs-niceplay-skin .vjs-volume-bar {
+.vjs-magneto-skin .vjs-volume-bar {
   width: 5em;
   height: 0.6em;
   margin: 1.1em auto 0;
 }
 
-.vjs-niceplay-skin .vjs-volume-menu-button .vjs-menu-content {
+.vjs-magneto-skin .vjs-volume-menu-button .vjs-menu-content {
   height: 2.9em;
 }
 
-.vjs-niceplay-skin .vjs-volume-level {
+.vjs-magneto-skin .vjs-volume-level {
   position: absolute;
   top: 0;
   left: 0;
@@ -477,12 +477,12 @@ $ie8screen: "\0screen";
   background-image: -ms-linear-gradient(-89deg, #5AB2E8 0%, #0285DF 100%);
   background-image: linear-gradient(-179deg, #5AB2E8 0%, #0285DF 100%);
 }
-.vjs-niceplay-skin .vjs-volume-bar .vjs-volume-handle {
+.vjs-magneto-skin .vjs-volume-bar .vjs-volume-handle {
   width: 0.5em;
   height: 0.5em;
 }
 
-.vjs-niceplay-skin .vjs-volume-handle:before {
+.vjs-magneto-skin .vjs-volume-handle:before {
   font-size: 0.9em;
   top: -0.2em;
   left: -0.2em;
@@ -491,7 +491,7 @@ $ie8screen: "\0screen";
   height: 1em;
 }
 
-.vjs-niceplay-skin .vjs-volume-menu-button .vjs-menu .vjs-menu-content {
+.vjs-magneto-skin .vjs-volume-menu-button .vjs-menu .vjs-menu-content {
   width: 6em;
   left: -4em;
 }
@@ -499,7 +499,7 @@ $ie8screen: "\0screen";
 /* Progress
 --------------------------------------------------------------------------------
 */
-.vjs-niceplay-skin .vjs-progress-control {
+.vjs-magneto-skin .vjs-progress-control {
   position: absolute;
   left: 0;
   right: 0;
@@ -516,7 +516,7 @@ $ie8screen: "\0screen";
 /* On hover, make the progress bar grow to something that's more clickable.
     This simply changes the overall font for the progress bar, and this
     updates both the em-based widths and heights, as wells as the icon font */
-.vjs-niceplay-skin:hover .vjs-progress-control {
+.vjs-magneto-skin:hover .vjs-progress-control {
   font-size: .9em;
 
   /* Even though we're not changing the top/height, we need to include them in
@@ -525,13 +525,13 @@ $ie8screen: "\0screen";
 }
 
 /* Box containing play and load progresses. Also acts as seek scrubber. */
-.vjs-niceplay-skin .vjs-progress-holder {
+.vjs-magneto-skin .vjs-progress-holder {
   height: 100%;
 }
 
 /* Progress Bars */
-.vjs-niceplay-skin .vjs-progress-holder .vjs-play-progress,
-.vjs-niceplay-skin .vjs-progress-holder .vjs-load-progress {
+.vjs-magneto-skin .vjs-progress-holder .vjs-play-progress,
+.vjs-magneto-skin .vjs-progress-holder .vjs-load-progress {
   position: absolute;
   display: block;
   height: 100%;
@@ -542,7 +542,7 @@ $ie8screen: "\0screen";
   top: 0;
 }
 
-.vjs-niceplay-skin .vjs-play-progress {
+.vjs-magneto-skin .vjs-play-progress {
   /*
     Using a data URI to create the white diagonal lines with a transparent
       background. Surprisingly works in IE8.
@@ -557,47 +557,47 @@ $ie8screen: "\0screen";
   background-image: -ms-linear-gradient(-89deg, #5AB2E8 0%, #0285DF 100%);
   background-image: linear-gradient(-179deg, #5AB2E8 0%, #0285DF 100%);
 }
-.vjs-niceplay-skin .vjs-load-progress {
+.vjs-magneto-skin .vjs-load-progress {
   background: rgb(100, 100, 100) /* IE8- Fallback */;
   background: rgba(255, 255, 255, 0.4);
 }
 
-.vjs-niceplay-skin .vjs-seek-handle {
+.vjs-magneto-skin .vjs-seek-handle {
   width: 1.5em;
   height: 100%;
 }
 
-.vjs-niceplay-skin .vjs-seek-handle:before {
+.vjs-magneto-skin .vjs-seek-handle:before {
   padding-top: 0.1em /* Minor adjustment */;
 }
 
 /* Time Display
 --------------------------------------------------------------------------------
 */
-.vjs-niceplay-skin .vjs-time-controls {
+.vjs-magneto-skin .vjs-time-controls {
   font-size: 1em;
   /* Align vertically by making the line height the same as the control bar *///
   line-height: 3em;
 }
-.vjs-niceplay-skin .vjs-current-time { float: left; }
-.vjs-niceplay-skin .vjs-duration { float: left; }
+.vjs-magneto-skin .vjs-current-time { float: left; }
+.vjs-magneto-skin .vjs-duration { float: left; }
 /* Remaining time is in the HTML, but not included in default design */
-.vjs-niceplay-skin .vjs-remaining-time { display: none; float: left; }
+.vjs-magneto-skin .vjs-remaining-time { display: none; float: left; }
 .vjs-time-divider { float: left; line-height: 3em; }
 
 /* Fullscreen
 --------------------------------------------------------------------------------
 */
-.vjs-niceplay-skin .vjs-fullscreen-control {
+.vjs-magneto-skin .vjs-fullscreen-control {
   width: 3.8em;
   cursor: pointer;
   float: right;
 }
-.vjs-niceplay-skin .vjs-fullscreen-control:before {
+.vjs-magneto-skin .vjs-fullscreen-control:before {
   content: $fullscreen-enter-icon;
 }
 /* Switch to the exit icon when the player is in fullscreen */
-.vjs-niceplay-skin.vjs-fullscreen .vjs-fullscreen-control:before {
+.vjs-magneto-skin.vjs-fullscreen .vjs-fullscreen-control:before {
   content: $fullscreen-exit-icon;
 }
 
@@ -606,7 +606,7 @@ $ie8screen: "\0screen";
 Positioning of the play button in the center or other corners can be done more
 easily in the skin designer. http://designer.videojs.com/
 */
-.vjs-niceplay-skin .vjs-big-play-button {
+.vjs-magneto-skin .vjs-big-play-button {
   // Calculate total width/height so we're able to center the button
   $total-width: $big-play-width + ($big-play-border-width * 2);
   $total-height: $big-play-height + ($big-play-border-width * 2);
@@ -636,7 +636,7 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Optionally center */
-.vjs-niceplay-skin.vjs-big-play-centered .vjs-big-play-button {
+.vjs-magneto-skin.vjs-big-play-centered .vjs-big-play-button {
   $total-width: $big-play-width + ($big-play-border-width * 2);
   $total-height: $big-play-height + ($big-play-border-width * 2);
 
@@ -645,21 +645,21 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Hide if controls are disabled */
-.vjs-niceplay-skin.vjs-controls-disabled .vjs-big-play-button {
+.vjs-magneto-skin.vjs-controls-disabled .vjs-big-play-button {
   display: none;
 }
 /* Hide when video starts playing */
-.vjs-niceplay-skin.vjs-has-started .vjs-big-play-button {
+.vjs-magneto-skin.vjs-has-started .vjs-big-play-button {
   display: none;
 }
 /* Hide on mobile devices. Remove when we stop using native controls
     by default on mobile  */
-.vjs-niceplay-skin.vjs-using-native-controls .vjs-big-play-button {
+.vjs-magneto-skin.vjs-using-native-controls .vjs-big-play-button {
   display: none;
 }
 
-.vjs-niceplay-skin:hover .vjs-big-play-button,
-.vjs-niceplay-skin .vjs-big-play-button:focus {
+.vjs-magneto-skin:hover .vjs-big-play-button,
+.vjs-magneto-skin .vjs-big-play-button:focus {
   outline: 0;
   border-color: #fff;
   /* IE8 needs a non-glow hover state *///
@@ -669,10 +669,10 @@ easily in the skin designer. http://designer.videojs.com/
   // @include box-shadow(0 0 3em #fff);
 }
 
-.vjs-niceplay-skin .vjs-big-play-button:before {
+.vjs-magneto-skin .vjs-big-play-button:before {
   color: #fff;
   content: 'e';
-  font-family: "niceplay";
+  font-family: "magneto";
   font-size: 30px;
   position: absolute;
   left: 50%;
@@ -707,7 +707,7 @@ easily in the skin designer. http://designer.videojs.com/
   @include animation(spin 1.5s infinite linear);
 }
 
-.vjs-niceplay-skin .vjs-loading-spinner:before {
+.vjs-magneto-skin .vjs-loading-spinner:before {
   content: $spinner3-icon;
   font-family: VideoJS;
 
@@ -740,12 +740,12 @@ easily in the skin designer. http://designer.videojs.com/
 /* Menu Buttons (Captions/Subtitles/etc.)
 --------------------------------------------------------------------------------
 */
-.vjs-niceplay-skin .vjs-menu-button {
+.vjs-magneto-skin .vjs-menu-button {
   float: right;
   cursor: pointer;
 }
 
-.vjs-niceplay-skin .vjs-menu {
+.vjs-magneto-skin .vjs-menu {
   display: none;
   position: absolute;
   bottom: 0;
@@ -762,7 +762,7 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Button Pop-up Menu */
-.vjs-niceplay-skin .vjs-menu-button .vjs-menu .vjs-menu-content {
+.vjs-magneto-skin .vjs-menu-button .vjs-menu .vjs-menu-content {
   display: block;
   padding: 0; margin: 0;
   position: absolute;
@@ -777,10 +777,10 @@ easily in the skin designer. http://designer.videojs.com/
   @include box-shadow(-0.2em -0.2em 0.3em rgba(255, 255, 255, 0.2));
 }
 
-.vjs-niceplay-skin .vjs-menu-button:hover .vjs-menu {
+.vjs-magneto-skin .vjs-menu-button:hover .vjs-menu {
   display: block;
 }
-.vjs-niceplay-skin .vjs-menu-button ul li {
+.vjs-magneto-skin .vjs-menu-button ul li {
   list-style: none;
   margin: 0;
   padding: 0.3em 0 0.3em 0;
@@ -789,20 +789,20 @@ easily in the skin designer. http://designer.videojs.com/
   text-align: center;
   text-transform: lowercase;
 }
-.vjs-niceplay-skin .vjs-menu-button ul li.vjs-selected {
+.vjs-magneto-skin .vjs-menu-button ul li.vjs-selected {
   background-color: #000;
 }
-.vjs-niceplay-skin .vjs-menu-button ul li:focus,
-.vjs-niceplay-skin .vjs-menu-button ul li:hover,
-.vjs-niceplay-skin .vjs-menu-button ul li.vjs-selected:focus,
-.vjs-niceplay-skin .vjs-menu-button ul li.vjs-selected:hover {
+.vjs-magneto-skin .vjs-menu-button ul li:focus,
+.vjs-magneto-skin .vjs-menu-button ul li:hover,
+.vjs-magneto-skin .vjs-menu-button ul li.vjs-selected:focus,
+.vjs-magneto-skin .vjs-menu-button ul li.vjs-selected:hover {
   outline: 0;
   color: #111;
 
   @include background-color-with-alpha(rgb(255, 255, 255), 0.75);
   @include box-shadow(0 0 1em rgba(255, 255, 255, 1));
 }
-.vjs-niceplay-skin .vjs-menu-button ul li.vjs-menu-title {
+.vjs-magneto-skin .vjs-menu-button ul li.vjs-menu-title {
   text-align: center;
   text-transform: uppercase;
   font-size: 1em;
@@ -814,16 +814,16 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Subtitles Button */
-.vjs-niceplay-skin .vjs-subtitles-button:before { content: $subtitles-icon; }
+.vjs-magneto-skin .vjs-subtitles-button:before { content: $subtitles-icon; }
 
 /* Captions Button */
-.vjs-niceplay-skin .vjs-captions-button:before {
+.vjs-magneto-skin .vjs-captions-button:before {
   content: $captions-icon;
 }
 
 /* Replacement for focus outline */
-.vjs-niceplay-skin .vjs-captions-button:focus .vjs-control-content:before,
-.vjs-niceplay-skin .vjs-captions-button:hover .vjs-control-content:before {
+.vjs-magneto-skin .vjs-captions-button:focus .vjs-control-content:before,
+.vjs-magneto-skin .vjs-captions-button:hover .vjs-control-content:before {
   @include box-shadow(0 0 1em rgba(255, 255, 255, 1));
 }
 
@@ -954,7 +954,7 @@ body.vjs-full-window {
 .vjs-tt-cue { display: block; }
 
 /* Hide disabled or unsupported controls */
-.vjs-niceplay-skin .vjs-hidden { display: none; }
+.vjs-magneto-skin .vjs-hidden { display: none; }
 
 .vjs-lock-showing {
   display: block !important;
@@ -987,7 +987,7 @@ body.vjs-full-window {
 //          .rule1 {}
 //          .rule2 {}
 //        This is why we aren't using nested rules inside of the
-//        vjs-niceplay-skin class.
+//        vjs-magneto-skin class.
 
 // -----------------------------------------------------------------------------
 //The original source of this file lives at

@@ -60,19 +60,19 @@ $font-set: 'Lato', Sans-serif;
 }
 
 @font-face {
-  font-family: "niceplay";
-  src:url("fonts/icons/niceplay.eot");
-  src:url("fonts/icons/niceplay.eot?#iefix") format("embedded-opentype"),
-    url("fonts/icons/niceplay.woff") format("woff"),
-    url("fonts/icons/niceplay.ttf") format("truetype"),
-    url("fonts/icons/niceplay.svg#niceplay") format("svg");
+  font-family: "magneto";
+  src:url("fonts/icons/magneto.eot");
+  src:url("fonts/icons/magneto.eot?#iefix") format("embedded-opentype"),
+    url("fonts/icons/magneto.woff") format("woff"),
+    url("fonts/icons/magneto.ttf") format("truetype"),
+    url("fonts/icons/magneto.svg#magneto") format("svg");
   font-weight: normal;
   font-style: normal;
 
 }
 
 [data-icon]:before {
-  font-family: "niceplay" !important;
+  font-family: "magneto" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -86,7 +86,7 @@ $font-set: 'Lato', Sans-serif;
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: "niceplay" !important;
+  font-family: "magneto" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;

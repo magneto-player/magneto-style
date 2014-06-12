@@ -1,5 +1,5 @@
 {
-  "name": "niceplay-style",
+  "name": "magneto-style",
   "version": "0.0.5",
   "scripts": {
     "prepublish": "grunt build"
